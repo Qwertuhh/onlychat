@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const promptForm = document.getElementById("prompt-form");
-const API_KEY = "AIzaSyAwfN_uJYTFcaXd1f4o09uy2QIEnC15J6w";
+const API_KEY = process.env.API_KEY;
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 const mainBox = document.getElementsByTagName("main")[0];
