@@ -1,0 +1,251 @@
+:root {
+  --border-radius-prompt: 38px;
+  --primary-color: #8619ba;
+  --secondary-color: #3d0b54;
+  --main-height: 85%;
+  --body: #2d2a2a;
+}
+
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  font-family: "Fira Code";
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--body);
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: white;
+  font-size: 25px;
+  letter-spacing: 4px;
+  font-weight: 600;
+  align-items: center;
+  padding: 0.6rem;
+  background-image: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+}
+
+main {
+  background-color: var(--body);
+  width: 100%;
+  height: var(--main-height);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+#prompt {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 1rem;
+  width: 95%;
+  /* display */
+  height: calc(100%-var(--main-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+#prompt form textarea,
+input {
+  padding: 0.3rem;
+  width: 100%;
+  border: none;
+}
+#prompt form textarea:focus {
+  outline: none;
+}
+#prompt form textarea {
+  background-color: transparent;
+  /* height: 1.2rem; */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  resize: none; /* Remove the resize handle */
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+#prompt form input {
+  border-radius: var(--border-radius-prompt);
+  background-color: #262424;
+  margin: 0px;
+  width: 35%;
+  padding: 15px;
+  color: #fff;
+  cursor: pointer;
+}
+#prompt form {
+  padding: 0.5rem 0.5rem 0.5rem 0.7rem;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #3f3c3c;
+  border-radius: 30px;
+}
+
+#prompt form textarea::placeholder {
+  text-align: left;
+  color: rgb(0, 0, 0);
+  color: #878585;
+  font-size: 16px;
+}
+
+main .output {
+  padding: 20px;
+  padding-top: 0px;
+  background-color: #2b2727;
+  border-radius: 10px;
+  margin: 1rem;
+  color: whitesmoke;
+}
+
+main .output h1,
+main .output h2,
+main .output h3,
+main .output h4,
+main .output h5,
+main .output h6 {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.3em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+main .output p {
+  line-height: 1.6;
+  margin: 1em 0;
+}
+main .output pre {
+  background: #444;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+  border: rgba(255, 255, 255, 0.432) 0.8px solid;
+}
+main .output code {
+  background: #444;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+main .output blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 10px;
+  color: #666;
+  margin: 1em 0;
+}
+main .output ul,
+main .output ol {
+  margin: 1em 0;
+  padding-left: 20px;
+}
+main .output table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+}
+main .output th,
+main .output td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+main .output th {
+  background-color: none;
+}
+
+#prompt form textarea::-webkit-scrollbar,
+main::-webkit-scrollbar {
+  background-color: #333;
+  width: 10px;
+}
+#prompt form textarea::-webkit-scrollbar-thumb,
+main::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 6px;
+}
+#prompt form textarea::-webkit-scrollbar-thumb:hover,
+main::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+  cursor: hand;
+}
+main .output pre::-webkit-scrollbar {
+  height: 12px;
+  background-color: #333;
+}
+main .output pre::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 6px;
+}
+main .output pre::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+main .input {
+  background-color: #262525;
+  align-self: flex-end;
+  color: white;
+  margin: 1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px 10px 0 10px;
+}
+.loader {
+  width: 20px;
+  height: 12px;
+  display: block;
+  /* margin: 0.4rem; */
+  position: relative;
+  border-radius: 4px;
+  color: #e7dcdc;
+  background: currentColor;
+  box-sizing: border-box;
+  animation: animloader 0.6s 0.3s ease infinite alternate;
+}
+main .onloader{
+  background-color:none;
+  display:flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  width: 20px;
+  height: 12px;
+  background: currentColor;
+  position: absolute;
+  border-radius: 4px;
+  top: 0;
+  right: 110%;
+  animation: animloader  0.6s ease infinite alternate;
+}
+.loader::after {
+  left: 110%;
+  right: auto;
+  animation-delay: 0.6s;
+}
+
+@keyframes animloader {
+  0% {
+    width: 20px;
+  }
+  100% {
+    width: 48px;
+  }
+}
